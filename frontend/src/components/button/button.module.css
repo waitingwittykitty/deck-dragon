@@ -1,20 +1,13 @@
 .button {
   @apply flex items-center font-alfa bg-yellow-dark rounded text-2xl;
-  @apply px-[59px] h-[50px] pt-[1px];
+  @apply px-8 h-[50px] pt-[1px] hover:bg-yellow transition-colors;
 }
 
 .big {
-  @apply text-extra-big h-[103px] pt-[5px];
+  @apply text-extra-big h-[103px] pt-[5px] px-[59px];
 }
 
 .secondary {
   @apply bg-transparent text-yellow-dark border-yellow-dark border-3;
-}
-
-.center {
-  @apply mx-auto;
-}
-
-.end {
-  @apply ml-auto;
+  @apply hover:text-yellow hover:border-yellow hover:bg-transparent;
 }

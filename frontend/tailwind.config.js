@@ -21,9 +21,46 @@ module.exports = {
       },
       fontSize: {
         'extra-big': ['4rem', '5.5rem'],
+        large: ['5.625rem', '6.32rem'],
       },
       borderWidth: {
         3: '3px',
+      },
+      height: {
+        66: '16.5rem',
+      },
+      rotate: {
+        15: '15deg',
+        7.5: '7.5deg',
+      },
+      keyframes: {
+        wiggle: {
+          '0%, 100%': { transform: 'rotate(-3deg)' },
+          '50%': { transform: 'rotate(3deg)' },
+        },
+        '-popup-2': {
+          '0%': { transform: 'rotate(0) translate(18rem, -36vh) scale(0.2, 0.2)', opacity: 0 },
+        },
+        '-popup-1': {
+          '0%': { transform: 'rotate(0) translate(6rem, -36vh) scale(0.2, 0.2)', opacity: 0 },
+        },
+        popup: {
+          '0%': { transform: 'rotate(0) translate(-6rem, -36vh) scale(0.2, 0.2)', opacity: 0 },
+        },
+        'popup-1': {
+          '0%': { transform: 'rotate(0) translate(-18rem, -36vh) scale(0.2, 0.2)', opacity: 0 },
+        },
+        'popup-2': {
+          '0%': { transform: 'rotate(0) translate(-30rem, -36vh) scale(0.2, 0.2)', opacity: 0 },
+        },
+      },
+      animation: {
+        wiggle: 'wiggle 0.5s ease-in-out infinite',
+        '-popup-2': '-popup-2 0.5s ease-in-out',
+        '-popup-1': '-popup-1 0.5s ease-in-out 0.1s',
+        popup: 'popup 0.5s ease-in-out 0.2s',
+        'popup-1': 'popup-1 0.5s ease-in-out 0.3s',
+        'popup-2': 'popup-2 0.5s ease-in-out 0.4s',
       },
     },
   },

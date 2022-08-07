@@ -1,0 +1,12 @@
+.group {
+  @apply flex xl:space-x-12 content-between justify-center flex-wrap xl:flex-nowrap;
+}
+
+.curved-5 {
+  @apply xl:[&:nth-child(1)]:rotate-15 [&:nth-child(1)]:-animate-popup-2;
+  @apply xl:[&:nth-child(2)]:rotate-7.5 xl:[&:nth-child(2)]:translate-y-12 [&:nth-child(2)]:-animate-popup-1;
+  @apply xl:[&:nth-child(3)]:translate-y-16 [&:nth-child(3)]:animate-popup;
+  @apply xl:[&:nth-child(4)]:-rotate-7.5 xl:[&:nth-child(4)]:translate-y-12 [&:nth-child(4)]:animate-popup-1;
+  @apply xl:[&:nth-child(5)]:-rotate-15 [&:nth-child(5)]:animate-popup-2;
+  @apply m-5 xl:m-0;
+}

@@ -4,13 +4,17 @@
 }
 
 .header {
-  @apply flex align-middle justify-center md:space-x-20 space-x-5 md:pt-[90px] pt-[50px];
+  @apply flex align-middle justify-center xl:space-x-20 space-x-5 xl:pt-[90px] pt-[50px];
 }
 
 .main {
-  @apply grow;
+  @apply grow flex items-center justify-center;
 }
 
-.footer {
-  @apply md:p-[60px] p-[50px];
+.deal {
+  @apply mx-auto;
+}
+
+.reset {
+  @apply xl:m-[60px] m-[50px] mx-auto xl:mr-[60px] xl:ml-auto;
 }

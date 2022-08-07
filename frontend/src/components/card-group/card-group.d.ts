@@ -1,0 +1,3 @@
+interface CardGroupProps {
+  cards: Card[];
+}

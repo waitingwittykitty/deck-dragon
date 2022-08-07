@@ -1,6 +1,7 @@
 import constants from '../../utils/constants';
 import Box from '../box/box.component';
 import Button from '../button/button.component';
+import CardGroup from '../card-group/card-group.component';
 import styles from './deck.module.css';
 
 function Deck() {
@@ -11,14 +12,24 @@ function Deck() {
         <Box title="0" description="Aces Left" />
       </header>
 
-      <main className={styles.main} />
+      <main className={styles.main}>
+        <CardGroup
+          cards={[
+            { rank: 'A', suite: 'spade' },
+            { rank: '7', suite: 'diamond' },
+            { rank: 'K', suite: 'clover' },
+            { rank: '9', suite: 'heart' },
+            { rank: '4', suite: 'clover' },
+          ]}
+        />
+      </main>
 
-      <footer className={styles.footer}>
-        <Button size="big" variant="primary" position="center">
+      <footer>
+        <Button className={styles.deal} size="big" variant="primary">
           {constants.deal}
         </Button>
 
-        <Button size="small" variant="secondary" position="end">
+        <Button className={styles.reset} size="small" variant="secondary">
           {constants.reset}
         </Button>
       </footer>
