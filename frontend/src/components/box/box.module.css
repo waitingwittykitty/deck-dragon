@@ -3,9 +3,9 @@
 }
 
 .title {
-  @apply text-5xl font-alfa;
+  @apply text-5xl font-alfa font-bold;
 }
 
 .description {
-  @apply text-xl font-courier;
+  @apply text-xl font-courier font-bold;
 }

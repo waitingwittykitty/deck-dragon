@@ -1,10 +1,14 @@
 .section {
   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%), #0a863e;
-  @apply h-screen;
+  @apply flex flex-col h-screen;
 }
 
 .header {
   @apply flex align-middle justify-center md:space-x-20 space-x-5 md:pt-[90px] pt-[50px];
+}
+
+.main {
+  @apply grow;
 }
 
 .footer {
