@@ -1,3 +1,0 @@
-interface AceCounterProps {
-  count: number;
-}

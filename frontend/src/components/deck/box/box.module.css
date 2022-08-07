@@ -1,0 +1,11 @@
+.section {
+  @apply bg-black text-white px-[30px] pt-5 pb-[18px] border-yellow border;
+}
+
+.title {
+  @apply text-5xl font-alfa;
+}
+
+.description {
+  @apply text-xl font-courier;
+}
