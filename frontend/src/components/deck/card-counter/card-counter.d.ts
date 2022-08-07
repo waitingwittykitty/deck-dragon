@@ -1,0 +1,3 @@
+interface CardCounterProps {
+  count: number;
+}
