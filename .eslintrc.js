@@ -1,5 +1,5 @@
 const path = require('path');
-const schemaJson = require('./server/schema.json');
+const schemaJson = require('./node-server/src/generated/schema.json');
 
 module.exports = {
   parser: '@typescript-eslint/parser',
@@ -43,7 +43,6 @@ module.exports = {
     'react/no-array-index-key': 'off',
     'graphql/capitalized-type-name': ['warn', { schemaJson: schemaJson }],
     'graphql/named-operations': ['warn', { schemaJson: schemaJson }],
-    'graphql/required-fields': ['error', { schemaJson: schemaJson, requiredFields: ['id'] }],
     'graphql/template-strings': [
       'error',
       { env: 'apollo', schemaJson: schemaJson, tagName: 'gql' },
