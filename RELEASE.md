@@ -140,7 +140,7 @@ If you are interested in rigging, contact us. 💌
 
 ## Used technics
 
-Used Node, Apollo, GraphQL Code Generator, React, TypeScript, and Tailwind.
+Used Node, Apollo, Prisam, Redis, GraphQL Code Generator, React, TypeScript, and Tailwind.
 
 ## License and sharing
 
