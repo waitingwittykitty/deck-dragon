@@ -11,9 +11,8 @@ const server = new ApolloServer({ typeDefs, resolvers });
 const app = express();
 server.applyMiddleware({ app });
 
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 
-// Start the server
 app.listen({ port: PORT }, () =>
   // eslint-disable-next-line no-console
   console.log(`🚀 Server ready at http://localhost:${PORT}${server.graphqlPath}`)

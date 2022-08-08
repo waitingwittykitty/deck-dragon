@@ -6,7 +6,8 @@ export const resolvers = {
   },
   Mutation: {
     deal: () => {
-      return { success: false };
+      const { current, finished, cardsLeft, acesLeft } = sampleUser.game;
+      return { current, finished, cardsLeft, acesLeft };
     },
   },
 };
