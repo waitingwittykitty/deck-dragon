@@ -30,10 +30,20 @@ export const resolvers: IResolvers = {
           data: {
             username,
             password: hashedPassword,
+            game: '',
           },
         });
 
         const game = await createGame(user.id);
+
+        await prisma.user.update({
+          where: {
+            username,
+          },
+          data: {
+            game: game.id,
+          },
+        });
 
         return {
           token: sign({ id: user.id, username: user.username, game: game.id }, APP_SECRET),
@@ -49,7 +59,13 @@ export const resolvers: IResolvers = {
         };
       }
 
-      const game = await createGame(user.id);
+      let game = null;
+
+      try {
+        game = await getGame(user.game);
+      } catch {
+        game = await createGame(user.id);
+      }
 
       return {
         token: sign({ id: user.id, username: user.username, game: game.id }, APP_SECRET),
