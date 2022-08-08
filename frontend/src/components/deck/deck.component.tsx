@@ -3,10 +3,11 @@ import constants from '../../utils/constants';
 import Box from '../box/box.component';
 import Button from '../button/button.component';
 import CardGroup from '../card-group/card-group.component';
+import Paragraph from '../paragraph/paragraph.component';
 import styles from './deck.module.css';
 import 'react-spinner/react-spinner.css';
 
-function Deck({ cards, loading }: DeckProps) {
+function Deck({ game, loading, onDeal, onReset }: DeckProps) {
   return (
     <section className={styles.section}>
       {loading ? (
@@ -14,22 +15,34 @@ function Deck({ cards, loading }: DeckProps) {
       ) : (
         <>
           <header className={styles.header}>
-            <Box title="0" description="Cards Left" />
-            <Box title="0" description="Aces Left" />
+            <Box title={game.cardsLeft.toString()} description="Cards Left" />
+            <Box title={game.acesLeft.toString()} description="Aces Left" />
           </header>
 
           <main className={styles.main}>
-            <CardGroup cards={cards} />
+            <CardGroup cards={game.current} />
           </main>
 
           <footer>
-            <Button className={styles.deal} size="big" variant="primary">
-              {constants.deal}
-            </Button>
+            {game.finished ? (
+              <>
+                <Paragraph>{constants.lost}</Paragraph>
+                <Paragraph>{constants.lostDescription}</Paragraph>
+                <Button className={styles.again} size="small" variant="secondary" onClick={onReset}>
+                  {constants.playAgain}
+                </Button>
+              </>
+            ) : (
+              <>
+                <Button className={styles.deal} size="big" variant="primary" onClick={onDeal}>
+                  {constants.deal}
+                </Button>
 
-            <Button className={styles.reset} size="small" variant="secondary">
-              {constants.reset}
-            </Button>
+                <Button className={styles.reset} size="small" variant="secondary" onClick={onReset}>
+                  {constants.reset}
+                </Button>
+              </>
+            )}
           </footer>
         </>
       )}

@@ -1,5 +1,4 @@
 .section {
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%), #0a863e;
   @apply flex flex-col h-screen;
 }
 
@@ -17,4 +16,8 @@
 
 .reset {
   @apply xl:m-[60px] m-[50px] mx-auto xl:mr-[60px] xl:ml-auto;
+}
+
+.again {
+  @apply mx-auto xl:mb-[167px] mb-[177px] mt-[72px];
 }
