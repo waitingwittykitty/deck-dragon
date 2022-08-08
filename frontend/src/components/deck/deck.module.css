@@ -21,3 +21,11 @@
 .again {
   @apply mx-auto xl:mb-[167px] mb-[177px] mt-[72px];
 }
+
+.badge {
+  @apply w-full flex items-center justify-center -translate-y-1/3;
+}
+
+.wiggle {
+  @apply animate-wiggle;
+}

@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 import Card from '../card/card.component';
 import styles from './card-group.module.css';
 
-function CardGroup({ cards }: CardGroupProps) {
+function CardGroup({ cards, className }: CardGroupProps) {
   const length = cards?.length || 0;
 
   const classNames = useMemo(() => {
@@ -26,7 +26,11 @@ function CardGroup({ cards }: CardGroupProps) {
   return (
     <ul className={styles.group}>
       {cards?.map((card, index) => (
-        <Card key={card} className={clsx(styles.card, styles[classNames[index]])} card={card} />
+        <Card
+          key={card}
+          className={clsx(className, styles.card, styles[classNames[index]])}
+          card={card}
+        />
       ))}
     </ul>
   );

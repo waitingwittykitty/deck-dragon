@@ -55,7 +55,7 @@ module.exports = {
         },
       },
       animation: {
-        wiggle: 'wiggle 0.3s ease-in-out infinite',
+        wiggle: 'wiggle 1s ease-in-out infinite',
         '-popup-2': '-popup-2 0.3s ease-in-out backwards',
         '-popup-1': '-popup-1 0.3s ease-in-out 0.05s backwards',
         popup: 'popup 0.3s ease-in-out 0.1s backwards',
