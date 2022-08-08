@@ -6,6 +6,7 @@ import FormField from '../../components/form-field/form-field.component';
 import Form from '../../components/form/form.component';
 import { LoginDocument } from '../../graphql/mutations/login';
 import { CurrentUserDetailsDocument } from '../../graphql/queries/current-user-details';
+import { GameDetailsDocument } from '../../graphql/queries/game-details';
 import constants from '../../utils/constants';
 
 function Login() {
@@ -28,7 +29,7 @@ function Login() {
     } else {
       localStorage.setItem('token', token);
       toast.success('Successfully logged in!');
-      client.refetchQueries({ include: [CurrentUserDetailsDocument] });
+      client.refetchQueries({ include: [CurrentUserDetailsDocument, GameDetailsDocument] });
     }
   };
 
