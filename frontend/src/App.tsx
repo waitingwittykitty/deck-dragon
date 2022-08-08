@@ -1,17 +1,19 @@
 import { ApolloProvider } from '@apollo/client';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import client from './graphql/client';
-import Stage from './pages/stage/stage.component';
+import AppRoutes from './routes';
 import styles from './App.module.css';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 function App() {
   return (
     <ApolloProvider client={client}>
       <BrowserRouter>
         <section className={styles.body}>
-          <Routes>
-            <Route path="/" element={<Stage />} />
-          </Routes>
+          <AppRoutes />
+
+          <ToastContainer />
         </section>
       </BrowserRouter>
     </ApolloProvider>

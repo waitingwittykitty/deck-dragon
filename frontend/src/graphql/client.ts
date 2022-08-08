@@ -9,7 +9,7 @@ const authLink = setContext((_, { headers }) => {
   let token = null;
 
   if (global.localStorage) {
-    token = localStorage.getItem('henry-blog-token');
+    token = localStorage.getItem('token');
   }
 
   return {
