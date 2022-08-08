@@ -1,3 +1,3 @@
 interface CardGroupProps {
-  cards: Card[];
+  cards: CardNumber[];
 }

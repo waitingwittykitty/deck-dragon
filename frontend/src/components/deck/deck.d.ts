@@ -1,4 +1,4 @@
 interface DeckProps {
-  cards: Card[];
+  cards: CardNumber[];
   loading: boolean;
 }
