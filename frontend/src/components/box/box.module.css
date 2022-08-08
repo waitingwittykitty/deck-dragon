@@ -3,7 +3,7 @@
 }
 
 .title {
-  @apply text-5xl font-alfa font-bold;
+  @apply text-5xl font-courier font-bold;
 }
 
 .description {
