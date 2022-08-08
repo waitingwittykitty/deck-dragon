@@ -1,0 +1,3 @@
+interface DeckProps {
+  cards: Card[];
+}

@@ -1,11 +1,16 @@
-import Deck from './components/deck/deck.component';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Stage from './pages/stage/stage.component';
 import styles from './App.module.css';
 
 function App() {
   return (
-    <div className={styles.body}>
-      <Deck />
-    </div>
+    <section className={styles.body}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Stage />} />
+        </Routes>
+      </BrowserRouter>
+    </section>
   );
 }
 

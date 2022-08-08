@@ -4,7 +4,7 @@ import Button from '../button/button.component';
 import CardGroup from '../card-group/card-group.component';
 import styles from './deck.module.css';
 
-function Deck() {
+function Deck({ cards }: DeckProps) {
   return (
     <section className={styles.section}>
       <header className={styles.header}>
@@ -13,15 +13,7 @@ function Deck() {
       </header>
 
       <main className={styles.main}>
-        <CardGroup
-          cards={[
-            { rank: 'A', suite: 'spade' },
-            { rank: '7', suite: 'diamond' },
-            { rank: 'K', suite: 'clover' },
-            { rank: '9', suite: 'heart' },
-            { rank: '4', suite: 'clover' },
-          ]}
-        />
+        <CardGroup cards={cards} />
       </main>
 
       <footer>
