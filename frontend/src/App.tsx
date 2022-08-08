@@ -1,6 +1,7 @@
 import { ApolloProvider } from '@apollo/client';
 import { BrowserRouter } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
+import UserMenu from './components/user-menu/user-menu.component';
 import client from './graphql/client';
 import AppRoutes from './routes';
 import styles from './App.module.css';
@@ -11,6 +12,8 @@ function App() {
     <ApolloProvider client={client}>
       <BrowserRouter>
         <section className={styles.body}>
+          <UserMenu />
+
           <AppRoutes />
 
           <ToastContainer />

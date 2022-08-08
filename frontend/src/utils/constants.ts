@@ -1,4 +1,5 @@
 export default {
+  hello: 'Hello, ',
   deal: 'DEAL',
   reset: 'Reset',
   playAgain: 'Play Again',
@@ -6,6 +7,7 @@ export default {
   lostDescription: 'Better luck next time!',
   retry: 'Retry',
   login: 'Login',
+  logout: 'Logout',
   username: 'Username',
   password: 'Password',
 };

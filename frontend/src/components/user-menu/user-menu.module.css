@@ -1,0 +1,19 @@
+.nav {
+  @apply absolute right-5 top-5;
+}
+
+.list {
+  @apply flex space-x-10;
+}
+
+.item {
+  @apply flex items-center justify-center;
+}
+
+.name {
+  @apply font-courier text-4xl text-yellow;
+}
+
+.hello {
+  @apply font-courier text-3xl text-yellow-dark mr-4;
+}

@@ -1,6 +1,6 @@
 .button {
   @apply flex items-center font-alfa bg-yellow-dark rounded text-2xl;
-  @apply px-8 h-[50px] pt-[1px] hover:bg-yellow transition-colors;
+  @apply px-8 h-[50px] pt-[1px] hover:bg-yellow transition-colors active:scale-95;
 }
 
 .big {
