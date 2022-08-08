@@ -1,5 +1,5 @@
 type Game {
-  id: Int!
+  id: String!
   user: User
   current: [Int!]
   cardsLeft: Int!
@@ -14,6 +14,12 @@ type DealResult {
   finished: Boolean!
 }
 
+type LoginResult {
+  token: String
+  success: Boolean
+  user: User
+}
+
 type User {
   id: Int!
   username: String
@@ -22,9 +28,12 @@ type User {
 
 type Query {
   me: User
+  game: Game
 }
 
 type Mutation {
+  login(username: String!, password: String!): LoginResult
   createGame: Game
-  deal(id: Int!): DealResult
+  deal: DealResult
+  reset: Game
 }

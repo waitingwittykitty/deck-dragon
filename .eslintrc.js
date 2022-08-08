@@ -43,10 +43,6 @@ module.exports = {
     'react/no-array-index-key': 'off',
     'graphql/capitalized-type-name': ['warn', { schemaJson: schemaJson }],
     'graphql/named-operations': ['warn', { schemaJson: schemaJson }],
-    'graphql/template-strings': [
-      'error',
-      { env: 'apollo', schemaJson: schemaJson, tagName: 'gql' },
-    ],
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
     'import/extensions': 'off',
     'import/newline-after-import': 'error',
