@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client';
 
-export const DealDocument = gql`
-  mutation Deal {
-    deal {
+export const CreateGameDocument = gql`
+  mutation CreateGame {
+    createGame {
       current
       cardsLeft
       acesLeft
