@@ -1,17 +1,23 @@
 type Game {
   id: ID!
+  user: User
+  current: [Int!]
+  cardsLeft: Int!
+  acesLeft: Int!
+  finished: Boolean!
 }
 
 type DealResult {
-  success: Boolean!
-  game: Game
+  current: [Int!]
+  cardsLeft: Int!
+  acesLeft: Int!
+  finished: Boolean!
 }
-
 
 type User {
   id: ID!
   username: String
-  games: [Game!]
+  game: Game!
 }
 
 type Query {
@@ -19,5 +25,5 @@ type Query {
 }
 
 type Mutation {
-  deal: DealResult
+  deal(id: Int!): DealResult
 }
