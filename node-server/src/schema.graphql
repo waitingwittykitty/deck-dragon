@@ -1,5 +1,5 @@
 type Game {
-  id: ID!
+  id: Int!
   user: User
   current: [Int!]
   cardsLeft: Int!
@@ -15,7 +15,7 @@ type DealResult {
 }
 
 type User {
-  id: ID!
+  id: Int!
   username: String
   game: Game!
 }
@@ -25,5 +25,6 @@ type Query {
 }
 
 type Mutation {
+  createGame: Game
   deal(id: Int!): DealResult
 }
