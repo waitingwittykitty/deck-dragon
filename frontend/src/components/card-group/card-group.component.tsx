@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { useMemo } from 'react';
 import Card from '../card/card.component';
 import styles from './card-group.module.css';
@@ -25,7 +26,7 @@ function CardGroup({ cards }: CardGroupProps) {
   return (
     <ul className={styles.group}>
       {cards.map((card, index) => (
-        <Card key={index} className={styles[classNames[index]]} card={card} />
+        <Card key={index} className={clsx(styles.card, styles[classNames[index]])} card={card} />
       ))}
     </ul>
   );

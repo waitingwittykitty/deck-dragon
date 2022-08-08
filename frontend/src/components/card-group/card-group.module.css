@@ -19,7 +19,7 @@
 }
 
 .curved-1 {
-  @apply xl:-rotate-7.5 translate-y-12 animate-popup-1;
+  @apply xl:-rotate-7.5 xl:translate-y-12 animate-popup-1;
 }
 
 .curved-2 {
