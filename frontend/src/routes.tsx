@@ -16,6 +16,7 @@ function AppRoutes() {
   return username ? (
     <Routes>
       <Route path="/" element={<Stage />} />
+      <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   ) : (
     <Routes>
