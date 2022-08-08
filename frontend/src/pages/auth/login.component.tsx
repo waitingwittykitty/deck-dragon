@@ -10,9 +10,7 @@ import constants from '../../utils/constants';
 
 function Login() {
   const client = useApolloClient();
-  const [login] = useMutation(LoginDocument, {
-    refetchQueries: [{ query: CurrentUserDetailsDocument }],
-  });
+  const [login] = useMutation(LoginDocument);
 
   const handleLogin = async (
     { username, password }: LoginFormData,
