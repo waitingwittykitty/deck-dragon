@@ -1,5 +1,5 @@
 .nav {
-  @apply absolute right-5 top-5;
+  @apply xl:absolute xl:right-5 xl:top-5 xl:p-0 p-5;
 }
 
 .list {
@@ -11,9 +11,9 @@
 }
 
 .name {
-  @apply font-courier text-4xl text-yellow;
+  @apply font-courier text-4xl text-yellow hidden md:block;
 }
 
 .hello {
-  @apply font-courier text-3xl text-yellow-dark mr-4;
+  @apply font-courier text-3xl text-yellow-dark mr-4 hidden md:block;
 }

@@ -1,10 +1,10 @@
 .button {
-  @apply flex items-center font-alfa bg-yellow-dark rounded text-2xl;
-  @apply px-8 h-[50px] pt-[1px] hover:bg-yellow transition-colors active:scale-95;
+  @apply flex items-center font-alfa bg-yellow-dark rounded text-lg sm:text-2xl;
+  @apply px-4 sm:px-8 sm:h-[50px] pt-[1px] hover:bg-yellow transition-colors active:scale-95;
 }
 
 .big {
-  @apply text-extra-big h-[103px] pt-[5px] px-[59px];
+  @apply text-3xl sm:text-extra-big pb-1 sm:h-[103px] pt-1 px-6 sm:pt-[5px] sm:px-[59px];
 }
 
 .secondary {
