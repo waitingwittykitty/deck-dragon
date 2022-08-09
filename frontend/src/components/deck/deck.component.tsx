@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import Spinner from 'react-spinner';
 import constants from '../../utils/constants';
+import { isAce } from '../../utils/helpers';
 import Box from '../box/box.component';
 import Button from '../button/button.component';
 import CardGroup from '../card-group/card-group.component';
@@ -10,10 +11,8 @@ import styles from './deck.module.css';
 import 'react-spinner/react-spinner.css';
 
 function Deck({ game, loading, onDeal, onReset }: DeckProps) {
-  const countPerSuite = process.env.REACT_APP_COUNT_PER_SUITE
-    ? Number(process.env.REACT_APP_COUNT_PER_SUITE)
-    : 13;
-  const isWinner = game?.current.some((card) => !(card % countPerSuite));
+  const hasAce = game?.current.some((card) => isAce(card));
+  const isWinner = game.finished && hasAce;
 
   return (
     <section className={styles.section}>
@@ -26,23 +25,20 @@ function Deck({ game, loading, onDeal, onReset }: DeckProps) {
             <Box title={game.acesLeft.toString()} description="Aces Left" />
           </header>
 
-          {game.finished && isWinner && (
+          {isWinner && (
             <div className={styles.badge}>
               <WinnerBadge />
             </div>
           )}
 
           <main className={styles.main}>
-            <CardGroup
-              className={clsx({ [styles.wiggle]: game.finished && isWinner })}
-              cards={game.current}
-            />
+            <CardGroup className={clsx({ [styles.wiggle]: isWinner })} cards={game.current} />
           </main>
 
           <footer>
             {game.finished ? (
               <>
-                {!isWinner && (
+                {!hasAce && (
                   <>
                     <Paragraph>{constants.lost}</Paragraph>
                     <Paragraph>{constants.lostDescription}</Paragraph>
