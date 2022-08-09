@@ -12,7 +12,7 @@ import 'react-spinner/react-spinner.css';
 
 function Deck({ game, loading, onDeal, onReset }: DeckProps) {
   const hasAce = game?.current.some((card) => isAce(card));
-  const isWinner = game.finished && hasAce;
+  const isWinner = game?.finished && hasAce;
 
   return (
     <section className={styles.section}>
