@@ -1,23 +1,39 @@
 type Game {
-  id: ID!
+  id: String!
+  user: User
+  current: [Int!]
+  cardsLeft: Int!
+  acesLeft: Int!
+  finished: Boolean!
 }
 
 type DealResult {
-  success: Boolean!
-  game: Game
+  current: [Int!]
+  cardsLeft: Int!
+  acesLeft: Int!
+  finished: Boolean!
 }
 
+type LoginResult {
+  token: String
+  success: Boolean
+  user: User
+}
 
 type User {
-  id: ID!
+  id: Int!
   username: String
-  games: [Game!]
+  game: Game!
 }
 
 type Query {
   me: User
+  game: Game
 }
 
 type Mutation {
+  login(username: String!, password: String!): LoginResult
+  createGame: Game
   deal: DealResult
+  reset: Game
 }

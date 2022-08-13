@@ -23,8 +23,8 @@
     "prettier:write": "prettier --write \"{frontend,node-server}/**/*.{js,jsx,ts,tsx,json,md,css,scss}\"",
     "prettier:check": "prettier --list-different \"{frontend,node-server}/**/*.{js,jsx,ts,tsx,json,md,css,scss}\"",
     "autoflake": "cd server && poetry run autoflake . --in-place --recursive --remove-all-unused-imports --remove-duplicate-keys --remove-unused-variables",
-    "black": "cd server && poetry run black uplifty tests",
-    "isort": "cd server && poetry run isort uplifty tests",
+    "black": "cd server && poetry run black deck tests",
+    "isort": "cd server && poetry run isort deck tests",
     "pytest": "yarn pytest:fresh --reuse-db",
     "pytest:fresh": "cd server && DOTENV_LOCATION=.env.pytest poetry run pytest",
     "pytest:parallel": "cd server && DOTENV_LOCATION=.env.pytest poetry run pytest -n auto"

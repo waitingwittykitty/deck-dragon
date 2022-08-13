@@ -1,24 +1,25 @@
-import logo from './assets/react-logo.svg';
+import { ApolloProvider } from '@apollo/client';
+import { BrowserRouter } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import UserMenu from './components/user-menu/user-menu.component';
+import client from './graphql/client';
+import AppRoutes from './routes';
 import styles from './App.module.css';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 function App() {
   return (
-    <div className={styles.body}>
-      <header className={styles.header}>
-        <img src={logo} className={styles.logo} alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="text-blue-300"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ApolloProvider client={client}>
+      <BrowserRouter>
+        <section className={styles.body}>
+          <UserMenu />
+
+          <AppRoutes />
+
+          <ToastContainer />
+        </section>
+      </BrowserRouter>
+    </ApolloProvider>
   );
 }
 

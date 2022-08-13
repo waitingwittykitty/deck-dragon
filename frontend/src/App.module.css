@@ -1,11 +1,4 @@
 .body {
-  @apply text-center;
-}
-
-.header {
-  @apply flex flex-col text-white bg-slate-700 h-screen align-middle justify-center text-lg;
-}
-
-.logo {
-  @apply h-2/6;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%), #0a863e;
+  @apply text-center h-screen flex flex-col overflow-auto;
 }

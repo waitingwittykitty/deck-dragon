@@ -1,16 +1,16 @@
 version: '3'
 services:
-  uplifty-frontend:
+  deck-frontend:
     build:
       context: .
       dockerfile: ./docker/Docker.frontend/Dockerfile
-    image: uplifty-frontend
+    image: deck-frontend
     env_file: .env
-    container_name: uplifty-frontend
+    container_name: deck-frontend
     volumes:
       - ./frontend:/code/frontend
       # - ./server:/code/server # uncomment this for fullstack; you need access to the backend schema.json
     ports:
-      - "3000:3000"
+      - '3000:3000'
     expose:
       - 3000

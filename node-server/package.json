@@ -6,7 +6,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "gql-codegen": "graphql-codegen --config codegen.yml",
-    "start": "ts-node src/index.ts",
+    "start": "ts-node-dev src/index.ts",
     "start:build": "node build/index.js",
     "build": "run-s clean compile copy",
     "clean": "rm -rf build",
@@ -19,9 +19,17 @@
     "prettier:check": "prettier --list-different \"**/*.{js,jsx,ts,tsx,json,md,css,scss}\""
   },
   "dependencies": {
+    "@prisma/client": "^4.1.1",
+    "@types/bcryptjs": "^2.4.2",
+    "@types/jsonwebtoken": "^8.5.8",
+    "@types/lodash": "^4.14.182",
+    "@types/redis": "^4.0.11",
     "apollo-server-express": "^2.22.2",
+    "bcryptjs": "^2.4.3",
     "express": "^4.17.1",
     "graphql": "^15.5.0",
+    "redis": "^4.2.0",
+    "ts-node-dev": "^2.0.0",
     "typescript": "^4.5.5",
     "uuid": "^8.3.2"
   },

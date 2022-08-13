@@ -3,20 +3,20 @@ services:
   db:
     image: postgres
     platform: linux/amd64
-    container_name: uplifty-db
+    container_name: deck-db
     environment:
       - POSTGRES_HOST_AUTH_METHOD=trust
-  uplifty:
+  deck:
     build:
       context: .
       dockerfile: ./docker/Docker.server/Dockerfile
-    image: uplifty
+    image: deck
     env_file: .env
-    container_name: uplifty
+    container_name: deck
     volumes:
       - .:/code
     ports:
-      - "8000:8000"
+      - '8000:8000'
     depends_on:
       - db
     links:

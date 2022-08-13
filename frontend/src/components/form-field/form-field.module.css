@@ -1,0 +1,12 @@
+.field {
+  @apply flex items-center font-alfa bg-yellow-dark rounded text-4xl;
+  @apply p-12 hover:bg-yellow transition-colors mb-8;
+}
+
+.label {
+  @apply mr-4;
+}
+
+.input {
+  @apply p-4 rounded;
+}
