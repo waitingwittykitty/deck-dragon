@@ -12,7 +12,7 @@ base: check-env-file
 # SSH (bash) into server container.
 # Useful for running Django shell commands.
 bash: base
-	docker-compose -f docker-compose.backend.yml exec uplifty bash
+	docker-compose -f docker-compose.backend.yml exec deck bash
 
 # SSH (bash) into database container.
 # Useful for running commands directly against database.
@@ -26,7 +26,7 @@ dbshell: base
 
 # Drop the local database.
 cleandb: base
-	docker-compose -f docker-compose.backend.yml exec db psql -h db -U postgres -c "DROP DATABASE IF EXISTS uplifty"
+	docker-compose -f docker-compose.backend.yml exec db psql -h db -U postgres -c "DROP DATABASE IF EXISTS deck"
 
 # Build docker containers. Pass --no-cache to force re-downloading of images.
 # See build --help for additional info
@@ -58,7 +58,7 @@ frontend-stop: base
 
 # Opens a shell in the running frontend container. Useful for installing packages.
 frontend-bash: base
-	docker-compose -f docker-compose.frontend.yml exec uplifty-frontend bash
+	docker-compose -f docker-compose.frontend.yml exec deck-frontend bash
 
 # Build docker containers. Pass --no-cache to force re-downloading of images.
 # See build --help for additional info
@@ -82,19 +82,19 @@ python-clean: base
 # SSH (bash) into server container.
 # Useful for running Django shell commands.
 python-shell: base
-	docker-compose -f docker-compose.backend.yml exec -T uplifty python manage.py shell
+	docker-compose -f docker-compose.backend.yml exec -T deck python manage.py shell
 
 # Install package, e.g. make python-install-venv ARGS='--dev django_extensions'
 python-install-venv: base
 	@echo WARNING - Any packages installed will be lost after the container shuts down. To persist changes, rebuild the docker image.
-	docker-compose -f docker-compose.backend.yml exec -T uplifty poetry install $(ARGS)
+	docker-compose -f docker-compose.backend.yml exec -T deck poetry install $(ARGS)
 
 # Lint server code automatically with black and autoflake
 # WARNING: This updates files in-place.   
 python-lint: base
-	docker-compose -f docker-compose.backend.yml exec -T uplifty black /code/server
-	docker-compose -f docker-compose.backend.yml exec -T uplifty isort /code/server
-	docker-compose -f docker-compose.backend.yml exec -T uplifty autoflake . --in-place --recursive --remove-all-unused-imports --remove-duplicate-keys --remove-unused-variables
+	docker-compose -f docker-compose.backend.yml exec -T deck black /code/server
+	docker-compose -f docker-compose.backend.yml exec -T deck isort /code/server
+	docker-compose -f docker-compose.backend.yml exec -T deck autoflake . --in-place --recursive --remove-all-unused-imports --remove-duplicate-keys --remove-unused-variables
 	@bash -c "\
 		if ! git diff-index --quiet HEAD --; then\
 			echo 'Changes made. See git diff';\
@@ -105,8 +105,8 @@ python-lint: base
 # Check server code automatically with black and autoflake
 # WARNING: This updates files in-place.
 python-lint-check: base
-	docker-compose -f docker-compose.backend.yml exec -T uplifty black /code/server
-	docker-compose -f docker-compose.backend.yml exec -T uplifty isort --check-only /code/server
+	docker-compose -f docker-compose.backend.yml exec -T deck black /code/server
+	docker-compose -f docker-compose.backend.yml exec -T deck isort --check-only /code/server
 	@bash -c "\
 		if ! git diff-index --quiet HEAD --; then\
 			echo 'Changes made. See git diff';\
@@ -115,37 +115,37 @@ python-lint-check: base
 	"
 	
 python-flake8-and-manage-py-check: base
-	docker-compose -f docker-compose.backend.yml exec -T uplifty flake8 uplifty/ tests/
-	docker-compose -f docker-compose.backend.yml exec -T uplifty python manage.py check
+	docker-compose -f docker-compose.backend.yml exec -T deck flake8 deck/ tests/
+	docker-compose -f docker-compose.backend.yml exec -T deck python manage.py check
 	
 # Security vulnerability checks
 # Check packages
 python-security-check: base
-	docker-compose -f docker-compose.backend.yml exec -T uplifty poetry run safety check
+	docker-compose -f docker-compose.backend.yml exec -T deck poetry run safety check
 	# Check files, except tests. See also server/.bandit config
-	docker-compose -f docker-compose.backend.yml exec -T uplifty bandit -r server
+	docker-compose -f docker-compose.backend.yml exec -T deck bandit -r server
 	
 # Run database migrations.
 python-makemigrations: base
-	docker-compose -f docker-compose.backend.yml exec -T uplifty python manage.py makemigrations $(ARGS)
+	docker-compose -f docker-compose.backend.yml exec -T deck python manage.py makemigrations $(ARGS)
         
 # Migrate database.
 python-migrate: base
-	docker-compose -f docker-compose.backend.yml exec -T uplifty python manage.py migrate $(ARGS)
+	docker-compose -f docker-compose.backend.yml exec -T deck python manage.py migrate $(ARGS)
         
 # Run database migrations.
 python-migrations-and-fixtures: base
-	docker-compose -f docker-compose.backend.yml exec -T uplifty python manage.py migrate
-	docker-compose -f docker-compose.backend.yml exec -T uplifty python manage.py makemigrations --check
+	docker-compose -f docker-compose.backend.yml exec -T deck python manage.py migrate
+	docker-compose -f docker-compose.backend.yml exec -T deck python manage.py makemigrations --check
         
 # Run database migrations.
 python-schema: base
-	docker-compose -f docker-compose.backend.yml exec -T uplifty python manage.py graphql_schema --schema uplifty.schema.schema --out schema.json
+	docker-compose -f docker-compose.backend.yml exec -T deck python manage.py graphql_schema --schema deck.schema.schema --out schema.json
 	
 # Run backend tests
 python-test: base
 	echo "Running tests with cache (use --cache-clear otherwise)..."
-	docker-compose -f docker-compose.backend.yml exec -T uplifty pytest $(ARGS)
+	docker-compose -f docker-compose.backend.yml exec -T deck pytest $(ARGS)
 	
 
 # Build docker containers. Pass --no-cache to force re-downloading of images.
@@ -171,8 +171,8 @@ php-test: base
 	echo "Running tests on PHP... this might take a while due to test repetition"
 	docker-compose -f docker-compose.php.yml run \
 		--rm \
-		--name uplifty-test \
-		uplifty \
+		--name deck-test \
+		deck \
 		/bin/bash /scripts/test.sh
 
 help:

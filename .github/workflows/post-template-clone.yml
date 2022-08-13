@@ -12,8 +12,8 @@ jobs:
 
       - name: configure git
         run: |
-          git config user.name "Uplift Actions Bot"
-          git config user.email "<github@uplift.ltd>"
+          git config user.name "Deck Dragon Actions Bot"
+          git config user.email "<github@deck.ltd>"
 
       - name: Remove scheduled checks
         run: |

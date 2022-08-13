@@ -14,7 +14,7 @@ function migrate {
 function mockdata {
     if ! ./manage.py dumpdata auth | grep -q interview; then
       echo "Test user does not exist, loading..."
-      python manage.py loaddata uplifty/fixtures/users.json
+      python manage.py loaddata deck/fixtures/users.json
     else
       echo "Test user exists"
     fi
@@ -39,9 +39,9 @@ function test {
     echo "Running tests with cache (use --cache-clear otherwise)..."
     cd /code/server/
     if [ $# -eq 0 ]; then
-        DJANGO_SETTINGS_MODULE=uplifty.settings pytest tests/
+        DJANGO_SETTINGS_MODULE=deck.settings pytest tests/
     else
-        DJANGO_SETTINGS_MODULE=uplifty.settings pytest "$@"
+        DJANGO_SETTINGS_MODULE=deck.settings pytest "$@"
     fi
 }
 

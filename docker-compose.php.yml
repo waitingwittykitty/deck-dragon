@@ -1,21 +1,20 @@
 version: '3'
 
 services:
-
   db:
     image: postgres
-    container_name: uplifty-db
+    container_name: deck-db
     environment:
       - POSTGRES_HOST_AUTH_METHOD=trust
 
-  uplifty:
+  deck:
     build:
       context: .
       dockerfile: docker/Docker.server.php/Dockerfile
       args:
-        ENV: "dev"
-    image: uplifty-php
-    container_name: uplifty
+        ENV: 'dev'
+    image: deck-php
+    container_name: deck
     volumes:
       - ./php-server/laravel-graphql/app:/var/www/app
       - ./php-server/laravel-graphql/config:/var/www/config
@@ -23,7 +22,7 @@ services:
       - ./php-server/laravel-graphql/graphql:/var/www/graphql
       - ./php-server/laravel-graphql/tests:/var/www/tests
     ports:
-      - "5001:8080"
+      - '5001:8080'
     depends_on:
       - db
     links:
